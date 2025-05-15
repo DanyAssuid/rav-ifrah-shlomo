@@ -30,7 +30,7 @@ const About = () => {
           <div className="reveal">
             <div className="rounded-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1580637250481-b78db3e6f84b?q=80&w=2070&auto=format&fit=crop" 
+                src="/lovable-uploads/3cf74cff-2872-4716-a6b2-a1cf004868e5.png" 
                 alt="רב החופה" 
                 className="w-full h-[500px] object-cover object-center"
               />
