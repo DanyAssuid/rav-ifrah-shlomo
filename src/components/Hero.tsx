@@ -1,0 +1,68 @@
+
+import React, { useEffect } from 'react';
+import { cn } from '@/lib/utils';
+
+const Hero = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    
+    return () => {
+      document.querySelectorAll('.reveal').forEach(el => observer.unobserve(el));
+    };
+  }, []);
+  
+  return (
+    <section id="home" className="relative h-screen">
+      <div className="absolute inset-0 bg-rabbi-dark">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat gradient-overlay"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop')",
+          }}
+        />
+      </div>
+      
+      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
+        <h1 className="reveal text-5xl md:text-6xl lg:text-7xl font-bold mb-4 font-frank gold-text-shadow">
+          טקסי חופה וקידושין
+        </h1>
+        <p className="reveal text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-rabbi-beige">
+          טקס חתונה מסורתי ואישי המותאם לכם ולאמונתכם
+        </p>
+        <div className="reveal flex flex-col sm:flex-row gap-4">
+          <a href="#contact" className="btn-primary">צור קשר</a>
+          <a href="#about" className="btn-outline">קצת עליי</a>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+        <a href="#about" className="flex flex-col items-center text-white">
+          <span className="mb-1">לחצו למטה</span>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
