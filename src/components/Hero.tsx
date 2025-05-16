@@ -38,19 +38,12 @@ const Hero = () => {
         <p className="reveal text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-rabbi-beige">
           טקס חתונה מסורתי ואישי המותאם לכם ולאמונתכם
         </p>
-        <div className="reveal flex flex-col sm:flex-row gap-4">
+        <div className="reveal flex justify-center">
           <Button 
             asChild 
             className="bg-rabbi-beige text-rabbi-dark hover:bg-white hover:text-rabbi-dark font-medium text-base px-8 py-6"
           >
             <a href="#contact">צור קשר</a>
-          </Button>
-          <Button 
-            asChild 
-            variant="outline" 
-            className="border-2 border-rabbi-beige text-rabbi-beige hover:bg-rabbi-beige hover:text-rabbi-dark font-medium text-base px-8 py-6"
-          >
-            <a href="#about">קצת עליי</a>
           </Button>
         </div>
       </div>
