@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   useEffect(() => {
@@ -38,8 +39,19 @@ const Hero = () => {
           טקס חתונה מסורתי ואישי המותאם לכם ולאמונתכם
         </p>
         <div className="reveal flex flex-col sm:flex-row gap-4">
-          <a href="#contact" className="btn-primary">צור קשר</a>
-          <a href="#about" className="btn-outline">קצת עליי</a>
+          <Button 
+            asChild 
+            className="bg-rabbi-beige text-rabbi-dark hover:bg-white hover:text-rabbi-dark font-medium text-base px-8 py-6"
+          >
+            <a href="#contact">צור קשר</a>
+          </Button>
+          <Button 
+            asChild 
+            variant="outline" 
+            className="border-2 border-rabbi-beige text-rabbi-beige hover:bg-rabbi-beige hover:text-rabbi-dark font-medium text-base px-8 py-6"
+          >
+            <a href="#about">קצת עליי</a>
+          </Button>
         </div>
       </div>
       
