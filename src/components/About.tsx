@@ -38,7 +38,7 @@ const About = () => {
           </div>
           
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold reveal">הרב שלמה ישראלי</h3>
+            <h3 className="text-2xl font-bold reveal">הרב שלמה יפרח</h3>
             <p className="reveal">
               שלום וברכה! אני הרב שלמה, רב מוסמך המתמחה בעריכת טקסי חופה וקידושין לזוגות מכל רחבי הארץ. 
               יותר מ-15 שנות ניסיון בליווי זוגות ביום המיוחד בחייהם הביאו אותי להבנה עמוקה של חשיבות הרגע.

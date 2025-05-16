@@ -25,7 +25,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat gradient-overlay"
           style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2069&auto=format&fit=crop')",
           }}
         />
       </div>
