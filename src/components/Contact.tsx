@@ -21,19 +21,19 @@ const Contact = () => {
         }
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    
+
     return () => {
       document.querySelectorAll('.reveal').forEach(el => observer.unobserve(el));
     };
   }, []);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real application, send the form data to a server
@@ -61,7 +61,7 @@ const Contact = () => {
             מעוניינים לשמוע פרטים נוספים? אשמח לענות על כל שאלה ולהציע את השירות הטוב ביותר עבורכם
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-10">
           <div className="reveal">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -77,7 +77,7 @@ const Contact = () => {
                   className="w-full p-3 rounded border bg-transparent border-rabbi-beige/30 focus:border-rabbi-beige outline-none transition-colors"
                 />
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="email" className="block mb-1">דוא״ל</label>
@@ -104,7 +104,7 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="date" className="block mb-1">תאריך חתונה משוער</label>
                 <input
@@ -116,7 +116,7 @@ const Contact = () => {
                   className="w-full p-3 rounded border bg-transparent border-rabbi-beige/30 focus:border-rabbi-beige outline-none transition-colors text-rabbi-beige"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block mb-1">הודעה</label>
                 <textarea
@@ -128,23 +128,23 @@ const Contact = () => {
                   className="w-full p-3 rounded border bg-transparent border-rabbi-beige/30 focus:border-rabbi-beige outline-none transition-colors"
                 ></textarea>
               </div>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className="w-full bg-rabbi-beige text-rabbi-dark hover:bg-rabbi-beige/90 transition-colors py-3 rounded font-bold"
               >
                 שלח הודעה
               </button>
             </form>
           </div>
-          
+
           <div className="reveal space-y-8">
             <div>
               <h3 className="text-xl font-bold mb-4">פרטי התקשרות</h3>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3">
                   <Phone className="min-w-[24px]" size={24} />
-                  <a href="tel:+97252-2725501" className="hover:text-white transition-colors">+972 52-2725501</a>
+                  <a href="tel:+97252-2725501" className="hover:text-white transition-colors text-justify">+972 52-2725501</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin className="min-w-[24px]" size={24} />
@@ -152,7 +152,7 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-bold mb-4">שעות פעילות</h3>
               <ul className="space-y-2">
