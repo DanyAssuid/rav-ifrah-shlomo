@@ -144,7 +144,7 @@ const Contact = () => {
               <ul className="space-y-4">
                 <li className="flex items-center gap-3">
                   <Phone className="min-w-[24px]" size={24} />
-                  <a href="tel:+97252-2725501" className="hover:text-white transition-colors" style={{ direction: ltr; }}>+972 52-2725501</a>
+                  <a href="tel:+97252-2725501" className="hover:text-white transition-colors" style={{ direction: 'ltr' }}>+972 52-2725501</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin className="min-w-[24px]" size={24} />
