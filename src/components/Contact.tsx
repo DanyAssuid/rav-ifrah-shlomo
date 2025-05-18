@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -144,15 +144,11 @@ const Contact = () => {
               <ul className="space-y-4">
                 <li className="flex items-center gap-3">
                   <Phone className="min-w-[24px]" size={24} />
-                  <span>054-1234567</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="min-w-[24px]" size={24} />
-                  <span>rabbi@example.com</span>
+                  <a href="tel:+97252-2725501" className="hover:text-white transition-colors">+972 52-2725501</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin className="min-w-[24px]" size={24} />
-                  <span>ירושלים, ישראל</span>
+                  <span>נתניה, ישראל</span>
                 </li>
               </ul>
             </div>
@@ -164,23 +160,7 @@ const Contact = () => {
                   <span>ימים א׳-ה׳:</span>
                   <span>09:00 - 20:00</span>
                 </li>
-                <li className="flex justify-between">
-                  <span>יום ו׳:</span>
-                  <span>09:00 - 13:00</span>
-                </li>
               </ul>
-            </div>
-            
-            <div className="h-48 bg-rabbi-beige/10 rounded-lg overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108513.61975360547!2d35.125536379050954!3d31.76856016942633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d634c1fc4b%3A0xd96f623e456ee1cb!2z15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1715721779935!5m2!1siw!2sil" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy"
-                title="מפת מיקום"
-              ></iframe>
             </div>
           </div>
         </div>
