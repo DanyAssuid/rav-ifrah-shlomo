@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -22,14 +21,14 @@ const Gallery = () => {
     };
   }, []);
 
-  // Sample gallery images (replace with actual images)
+  // Updated gallery images - added new uploaded image and removed the sporty one
   const galleryImages = [
+    "/lovable-uploads/eeb0e37d-dba3-4fae-aeb1-3b01bcd3ae10.png", // Added new uploaded image
     "https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?q=80&w=2069&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?q=80&w=2070&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1560141343-966cb5212777?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=2080&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1537633552985-df8429e048b?q=80&w=2080&auto=format&fit=crop",
   ];
   
   const openImageModal = (imageSrc: string) => {
