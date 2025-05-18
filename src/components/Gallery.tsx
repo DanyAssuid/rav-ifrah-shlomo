@@ -25,11 +25,12 @@ const Gallery = () => {
   // Updated gallery images - added new uploaded images and replaced some existing ones
   const galleryImages = [
     "/lovable-uploads/6f9ea102-37b5-4835-86fc-f73d9c83a0fe.png", // Added shofar blowing image
-    "/lovable-uploads/1366.png", // Added flour splash image
+    "/lovable-uploads/1366.jpg", // Added flour splash image
     "/lovable-uploads/eeb0e37d-dba3-4fae-aeb1-3b01bcd3ae10.png", // Kept previously added image
-    "/lovable-uploads/1366.png",
-    "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1537633552985-df8429e048b?q=80&w=2080&auto=format&fit=crop",
+    "/lovable-uploads/image1.jpg",
+    "/lovable-uploads/image2.jpg",
+    "/lovable-uploads/image3.jpg",
+
   ];
 
   const openImageModal = (imageSrc: string) => {
