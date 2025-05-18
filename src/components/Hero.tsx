@@ -36,7 +36,7 @@ const Hero = () => {
           טקסי חופה וקידושין
         </h1>
         <p className="reveal text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-rabbi-beige">
-          טקס חתונה מסורתי ואישי המותאם לכם ולאמונתכם
+          טקס חתונה דתי ואישי המותאם לכם ולאמונתכם
         </p>
         <div className="reveal flex justify-center">
           <Button 
