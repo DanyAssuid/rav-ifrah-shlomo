@@ -14,9 +14,9 @@ const Gallery = () => {
         }
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    
+
     return () => {
       document.querySelectorAll('.reveal').forEach(el => observer.unobserve(el));
     };
@@ -25,13 +25,13 @@ const Gallery = () => {
   // Updated gallery images - added new uploaded images and replaced some existing ones
   const galleryImages = [
     "/lovable-uploads/6f9ea102-37b5-4835-86fc-f73d9c83a0fe.png", // Added shofar blowing image
-    "/lovable-uploads/59d0883c-d610-4f58-8e30-c267037d1bc7.png", // Added flour splash image
+    "/lovable-uploads/1366.png", // Added flour splash image
     "/lovable-uploads/eeb0e37d-dba3-4fae-aeb1-3b01bcd3ae10.png", // Kept previously added image
     "https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?q=80&w=2069&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?q=80&w=2070&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1537633552985-df8429e048b?q=80&w=2080&auto=format&fit=crop",
   ];
-  
+
   const openImageModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
     setIsOpen(true);
@@ -47,18 +47,18 @@ const Gallery = () => {
             רגעים קסומים מטקסי חופות שערכתי, המשקפים את האהבה, המסורת והרגע המיוחד
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {galleryImages.map((image, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="aspect-square overflow-hidden rounded-lg cursor-pointer relative reveal hover:scale-[1.02] transition-transform duration-300"
               onClick={() => openImageModal(image)}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <img 
-                src={image} 
-                alt={`חופה ${index + 1}`} 
+              <img
+                src={image}
+                alt={`חופה ${index + 1}`}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
@@ -68,12 +68,12 @@ const Gallery = () => {
           ))}
         </div>
       </div>
-      
+
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-4xl bg-rabbi-dark p-1 border-0">
-          <img 
-            src={selectedImage} 
-            alt="תמונת חופה מורחבת" 
+          <img
+            src={selectedImage}
+            alt="תמונת חופה מורחבת"
             className="w-full h-auto max-h-[80vh] object-contain"
           />
         </DialogContent>
