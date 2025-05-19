@@ -17,9 +17,9 @@ export const sendContactEmail = (formData: {
   };
 
   return send(
-    'YOUR_SERVICE_ID', // Remplacez par votre Service ID
-    'YOUR_TEMPLATE_ID', // Remplacez par votre Template ID
+    'service_0tq5jip', // Service ID
+    'template_4ealsuj', // Template ID
     templateParams,
-    'YOUR_USER_ID' // Remplacez par votre User ID
+    'PQNOhyV0lch9a3seg' // Public Key
   );
 };
