@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Phone, MapPin } from 'lucide-react';
+import { sendContactEmail } from '@/services/EmailService';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -34,21 +35,29 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, send the form data to a server
-    console.log(formData);
-    toast({
-      title: "טופס נשלח בהצלחה!",
-      description: "ניצור איתך קשר בהקדם.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      message: ''
-    });
+    try {
+      await sendContactEmail(formData);
+      toast({
+        title: "טופס נשלח בהצלחה!",
+        description: "ניצור איתך קשר בהקדם.",
+      });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "שגיאה בשליחת הטופס",
+        description: "אנא נסו שוב מאוחר יותר.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
