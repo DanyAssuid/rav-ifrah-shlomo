@@ -25,7 +25,7 @@ const Gallery = () => {
   // Updated gallery images - added new uploaded images and replaced some existing ones
   const galleryImages = [
     "/lovable-uploads/6f9ea102-37b5-4835-86fc-f73d9c83a0fe.png", // Added shofar blowing image
-    "/lovable-uploads/1366.jpg", // Added flour splash image
+    "/lovable-uploads/write.jpg",
     "/lovable-uploads/eeb0e37d-dba3-4fae-aeb1-3b01bcd3ae10.png", // Kept previously added image
     "/lovable-uploads/image1.jpg",
     "/lovable-uploads/image2.jpg",
