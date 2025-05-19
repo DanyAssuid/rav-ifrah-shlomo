@@ -13,6 +13,7 @@ const Contact = () => {
     date: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -33,6 +34,11 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // If user starts typing again after submission, enable the button again
+    if (isSubmitted) {
+      setIsSubmitted(false);
+    }
   };
 
   const scrollToTop = () => {
@@ -45,6 +51,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      setIsSubmitted(true);
       await sendContactEmail(formData);
       
       // Show success toast with green styling
@@ -73,6 +80,9 @@ const Contact = () => {
         description: "אנא נסו שוב מאוחר יותר.",
         variant: "destructive"
       });
+      
+      // Enable the button again if there was an error
+      setIsSubmitted(false);
     }
   };
 
@@ -156,9 +166,14 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-rabbi-beige text-rabbi-dark hover:bg-rabbi-beige/90 transition-colors py-3 rounded font-bold"
+                disabled={isSubmitted}
+                className={`w-full bg-rabbi-beige text-rabbi-dark transition-colors py-3 rounded font-bold ${
+                  isSubmitted 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:bg-rabbi-beige/90'
+                }`}
               >
-                שלח הודעה
+                {isSubmitted ? 'נשלח בהצלחה' : 'שלח הודעה'}
               </button>
             </form>
           </div>
