@@ -35,14 +35,26 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await sendContactEmail(formData);
+      
+      // Show success toast with green styling
       toast({
         title: "טופס נשלח בהצלחה!",
         description: "ניצור איתך קשר בהקדם.",
+        className: "bg-green-50 border-green-200 text-green-800",
       });
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -50,6 +62,10 @@ const Contact = () => {
         date: '',
         message: ''
       });
+      
+      // Scroll to top of page
+      scrollToTop();
+      
     } catch (error) {
       console.error("Error sending email:", error);
       toast({
@@ -148,6 +164,14 @@ const Contact = () => {
           </div>
 
           <div className="reveal space-y-8">
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/lovable-uploads/d5f6e033-6e48-49ce-b906-fde0905f23f2.png" 
+                alt="הרב שלמה יפרח" 
+                className="max-w-full h-auto"
+              />
+            </div>
+            
             <div>
               <h3 className="text-xl font-bold mb-4">פרטי התקשרות</h3>
               <ul className="space-y-4">
