@@ -6,7 +6,7 @@ const BackgroundDecoration = () => {
     <div className="fixed inset-0 pointer-events-none z-0 opacity-10 overflow-hidden">
       <div className="absolute top-0 right-0 w-full h-full">
         <img
-          src="/lovable-uploads/cf1f18d1-8770-47c9-ad0b-f66ab495176b.png"
+          src="/lovable-uploads/shofar.avif"
           alt=""
           className="absolute top-0 right-0 w-1/3 h-auto object-contain"
         />

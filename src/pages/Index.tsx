@@ -6,12 +6,12 @@ import About from '@/components/About';
 import Gallery from '@/components/Gallery';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import BackgroundDecoration from '@/components/BackgroundDecoration';
+// import BackgroundDecoration from '@/components/BackgroundDecoration';
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
-      <BackgroundDecoration />
+      {/* <BackgroundDecoration /> */}
       <Navbar />
       <Hero />
       <About />
