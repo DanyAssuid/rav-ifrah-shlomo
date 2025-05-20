@@ -30,7 +30,6 @@ const Gallery = () => {
     "/lovable-uploads/image1.jpg",
     "/lovable-uploads/image2.jpg",
     "/lovable-uploads/image3.jpg",
-
   ];
 
   const openImageModal = (imageSrc: string) => {
@@ -45,7 +44,7 @@ const Gallery = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 reveal">גלריית חופות</h2>
           <div className="w-24 h-1 bg-rabbi-dark mx-auto reveal"></div>
           <p className="mt-4 max-w-2xl mx-auto reveal">
-            רגעים קסומים מטקסי חופות שערכתי, המשקפים את האהבה, המסורת והרגע המיוחד
+            רגעים קסומים מטקסי חופות שערכתי, המשקפים את האהבה והרגע המיוחד
           </p>
         </div>
 

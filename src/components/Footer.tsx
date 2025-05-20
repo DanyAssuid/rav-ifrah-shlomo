@@ -19,7 +19,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-4 text-center text-sm border-t border-rabbi-beige/10 text-rabbi-beige/50">
-          <p>האתר עוצב בהשראת המסורת היהודית העשירה והערכים שמלווים את טקסי החופה וקידושין</p>
+          <p>האתר עוצב בהשראת הדת היהודית העשירה והערכים שמלווים את טקסי החופה וקידושין</p>
         </div>
       </div>
     </footer>
