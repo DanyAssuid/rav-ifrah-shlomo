@@ -42,8 +42,23 @@ const GalleryPage = () => {
     "/lovable-uploads/82ace931-6a99-4a88-a0eb-ea69d797da9d.png",
     "/lovable-uploads/635ba545-1d7c-496c-90e4-01eada23b0f8.png",
     "/lovable-uploads/b1c6d12c-14c9-47b1-ae2f-afade2627135.png",
-    "/lovable-uploads/bdcd480d-b10c-411b-8db9-b7a4a1cb8655.png"
+    "/lovable-uploads/bdcd480d-b10c-411b-8db9-b7a4a1cb8655.png",
+    "/lovable-uploads/videos/video1.mp4",
+    "/lovable-uploads/videos/video2.mp4",
+    "/lovable-uploads/videos/video3.mp4",
+    "/lovable-uploads/videos/video4.mp4",
+    "/lovable-uploads/videos/video5.mp4",
+    "/lovable-uploads/videos/video6.mp4",
+    "/lovable-uploads/videos/video7.mp4",
+    "/lovable-uploads/videos/video8.mp4",
+    "/lovable-uploads/videos/video9.mp4",
+    "/lovable-uploads/videos/video10.mp4",
+    "/lovable-uploads/videos/video11.mp4",
+    "/lovable-uploads/videos/video12.mp4"
   ];
+
+  // Fonction utilitaire pour détecter les vidéos
+  const isVideo = (file: string) => file.endsWith('.mp4') || file.endsWith('.webm') || file.endsWith('.mov');
 
   const openImageModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
@@ -53,9 +68,16 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen flex flex-col relative bg-rabbi-lightBeige">
       <Navbar />
-      
+
       {/* Banner Section */}
-      <div className="relative h-96 bg-gradient-to-r from-rabbi-dark via-rabbi-darkGray to-rabbi-dark flex items-center justify-center overflow-hidden">
+      <div
+        className="relative h-96 flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: "url('/lovable-uploads/0996.JPG')",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 text-center text-rabbi-beige">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 font-frank gold-text-shadow">גלריית חופות</h1>
@@ -64,7 +86,7 @@ const GalleryPage = () => {
           </p>
         </div>
       </div>
-      
+
       <main className="flex-1">
         <section className="section-padding bg-rabbi-beige/20">
           <div className="container mx-auto">
@@ -76,12 +98,22 @@ const GalleryPage = () => {
                   onClick={() => openImageModal(image)}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <img
-                    src={image}
-                    alt={`טקס חופה ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  {isVideo(image) ? (
+                    <video
+                      src={image}
+                      className="w-full h-full object-cover"
+                      style={{ background: '#eee' }}
+                      controls={false}
+                      preload="metadata"
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={`טקס חופה ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
                     <span className="text-white text-lg font-medium">צפייה מורחבת</span>
                   </div>
@@ -102,11 +134,20 @@ const GalleryPage = () => {
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-5xl bg-rabbi-dark p-1 border-0">
-          <img
-            src={selectedImage}
-            alt="תמונת חופה מורחבת"
-            className="w-full h-auto max-h-[85vh] object-contain"
-          />
+          {isVideo(selectedImage) ? (
+            <video
+              src={selectedImage}
+              className="w-full h-auto max-h-[85vh] object-contain"
+              controls
+              autoPlay
+            />
+          ) : (
+            <img
+              src={selectedImage}
+              alt="תמונת חופה מורחבת"
+              className="w-full h-auto max-h-[85vh] object-contain"
+            />
+          )}
         </DialogContent>
       </Dialog>
     </div>
