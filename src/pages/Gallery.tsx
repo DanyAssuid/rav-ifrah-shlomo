@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Navbar from '@/components/Navbar';
@@ -55,17 +54,20 @@ const GalleryPage = () => {
     <div className="min-h-screen flex flex-col relative bg-rabbi-lightBeige">
       <Navbar />
       
-      <main className="flex-1 pt-20">
+      {/* Banner Section */}
+      <div className="relative h-96 bg-gradient-to-r from-rabbi-dark via-rabbi-darkGray to-rabbi-dark flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="relative z-10 text-center text-rabbi-beige">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 font-frank gold-text-shadow">גלריית חופות</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto px-4">
+            אוסף תמונות מטקסי חופה וקידושין - רגעים קסומים של אהבה וקדושה
+          </p>
+        </div>
+      </div>
+      
+      <main className="flex-1">
         <section className="section-padding bg-rabbi-beige/20">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal text-rabbi-dark">גלריית חופות</h1>
-              <div className="w-24 h-1 bg-rabbi-dark mx-auto reveal"></div>
-              <p className="mt-6 max-w-3xl mx-auto text-lg reveal text-rabbi-dark">
-                אוסף תמונות מטקסי חופה וקידושין שערכתי לאורך השנים - רגעים קסומים של אהבה, שמחה וקדושה
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {galleryImages.map((image, index) => (
                 <div
