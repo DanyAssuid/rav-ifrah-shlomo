@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Link } from 'react-router-dom';
 
 const Gallery = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +23,14 @@ const Gallery = () => {
     };
   }, []);
 
-  // Updated gallery images - added new uploaded images and replaced some existing ones
-  const galleryImages = [
-    "/lovable-uploads/6f9ea102-37b5-4835-86fc-f73d9c83a0fe.png", // Added shofar blowing image
+  // Images d'aperçu pour la page d'accueil (sélection réduite)
+  const previewImages = [
+    "/lovable-uploads/d7948eb4-e5f6-4db7-86c7-1d7bd0821a79.png",
+    "/lovable-uploads/4fb93998-1cac-4348-8f23-786c2292bfcf.png",
+    "/lovable-uploads/b1c6d12c-14c9-47b1-ae2f-afade2627135.png",
+    "/lovable-uploads/6f9ea102-37b5-4835-86fc-f73d9c83a0fe.png",
     "/lovable-uploads/write.jpg",
-    "/lovable-uploads/eeb0e37d-dba3-4fae-aeb1-3b01bcd3ae10.png", // Kept previously added image
-    "/lovable-uploads/image1.jpg",
-    "/lovable-uploads/image2.jpg",
-    "/lovable-uploads/image3.jpg",
+    "/lovable-uploads/bdcd480d-b10c-411b-8db9-b7a4a1cb8655.png",
   ];
 
   const openImageModal = (imageSrc: string) => {
@@ -49,7 +50,7 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
+          {previewImages.map((image, index) => (
             <div
               key={index}
               className="aspect-square overflow-hidden rounded-lg cursor-pointer relative reveal hover:scale-[1.02] transition-transform duration-300"
@@ -66,6 +67,15 @@ const Gallery = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12 reveal">
+          <Link 
+            to="/gallery"
+            className="btn-primary inline-block"
+          >
+            צפייה בגלריה המלאה
+          </Link>
         </div>
       </div>
 

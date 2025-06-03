@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +26,27 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { text: "בית", href: "#home" },
-    { text: "מי אני", href: "#about" },
-    { text: "גלריה", href: "#gallery" },
-    { text: "צור קשר", href: "#contact" },
+    { text: "בית", href: "/", isExternal: false },
+    { text: "מי אני", href: "/#about", isExternal: false },
+    { text: "גלריה", href: "/gallery", isExternal: false },
+    { text: "צור קשר", href: "/#contact", isExternal: false },
   ];
+
+  const handleLinkClick = (href: string, isExternal: boolean) => {
+    setIsOpen(false);
+    
+    if (!isExternal && href.includes('#')) {
+      // Pour les liens d'ancrage
+      if (location.pathname !== '/') {
+        // Si nous ne sommes pas sur la page d'accueil, naviguons d'abord vers la page d'accueil
+        window.location.href = href;
+      } else {
+        // Si nous sommes sur la page d'accueil, faisons un scroll smooth
+        const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#home');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header 
@@ -38,7 +56,7 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold font-frank text-rabbi-beige gold-text-shadow">רב החופה</a>
+        <Link to="/" className="text-2xl font-bold font-frank text-rabbi-beige gold-text-shadow">רב החופה</Link>
         
         {/* Mobile menu button */}
         <button 
@@ -54,13 +72,29 @@ const Navbar = () => {
           <ul className="flex gap-10">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <a 
-                  href={link.href}
-                  className="text-lg font-medium hover:text-rabbi-beige transition-colors pb-1 border-b-2 border-transparent hover:border-rabbi-beige relative group"
-                >
-                  {link.text}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-rabbi-beige transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                {link.href.startsWith('/') && !link.href.includes('#') ? (
+                  <Link 
+                    to={link.href}
+                    className="text-lg font-medium hover:text-rabbi-beige transition-colors pb-1 border-b-2 border-transparent hover:border-rabbi-beige relative group"
+                  >
+                    {link.text}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-rabbi-beige transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                ) : (
+                  <a 
+                    href={link.href}
+                    className="text-lg font-medium hover:text-rabbi-beige transition-colors pb-1 border-b-2 border-transparent hover:border-rabbi-beige relative group"
+                    onClick={(e) => {
+                      if (link.href.includes('#')) {
+                        e.preventDefault();
+                        handleLinkClick(link.href, link.isExternal);
+                      }
+                    }}
+                  >
+                    {link.text}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-rabbi-beige transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -81,19 +115,36 @@ const Navbar = () => {
             </button>
             
             <div className="mt-16 mb-6 text-center">
-              <a href="#" className="text-2xl font-bold font-frank text-rabbi-beige gold-text-shadow">רב החופה</a>
+              <Link to="/" className="text-2xl font-bold font-frank text-rabbi-beige gold-text-shadow" onClick={() => setIsOpen(false)}>רב החופה</Link>
             </div>
             
             <ul className="flex flex-col gap-6 items-center">
               {navLinks.map((link, index) => (
                 <li key={index} className="w-full">
-                  <a 
-                    href={link.href}
-                    className="block text-rabbi-beige text-xl text-center font-medium py-3 border-b border-rabbi-beige/20 hover:bg-rabbi-beige/10 transition-colors rounded"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.text}
-                  </a>
+                  {link.href.startsWith('/') && !link.href.includes('#') ? (
+                    <Link 
+                      to={link.href}
+                      className="block text-rabbi-beige text-xl text-center font-medium py-3 border-b border-rabbi-beige/20 hover:bg-rabbi-beige/10 transition-colors rounded"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.text}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={link.href}
+                      className="block text-rabbi-beige text-xl text-center font-medium py-3 border-b border-rabbi-beige/20 hover:bg-rabbi-beige/10 transition-colors rounded"
+                      onClick={(e) => {
+                        if (link.href.includes('#')) {
+                          e.preventDefault();
+                          handleLinkClick(link.href, link.isExternal);
+                        } else {
+                          setIsOpen(false);
+                        }
+                      }}
+                    >
+                      {link.text}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
