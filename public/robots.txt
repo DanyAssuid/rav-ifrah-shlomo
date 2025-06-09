@@ -14,4 +14,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://yoursite.lovable.app/sitemap.xml
+Sitemap: https://rav-ifrach-shlomo.lovable.app/sitemap.xml
