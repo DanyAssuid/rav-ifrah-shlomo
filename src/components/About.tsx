@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 
 const About = () => {
@@ -37,8 +38,6 @@ const About = () => {
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold reveal mb-4">הרב שלמה יפרח</h3>
-            
             <div className="reveal leading-relaxed text-base">
               <p>
                 שלום וברכה
