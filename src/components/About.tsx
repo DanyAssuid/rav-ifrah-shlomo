@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 
 const About = () => {
@@ -38,57 +37,51 @@ const About = () => {
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold reveal mb-6">הרב שלמה יפרח</h3>
+            <h3 className="text-2xl font-bold reveal mb-4">הרב שלמה יפרח</h3>
             
-            <div className="space-y-3">
-              <p className="reveal">
+            <div className="reveal leading-relaxed text-base">
+              <p className="mb-2">
                 שלום וברכה
               </p>
-              
-              <p className="reveal">
+              <p className="mb-2">
                 שמי הרב שלמה יפרח
               </p>
-              
-              <p className="reveal">
+              <p className="mb-2">
                 רב קהילת אורות קרית השרון נתניה.
               </p>
-              
-              <p className="reveal">
+              <p className="mb-2">
                 ר"מ בישיבת אורות נתניה
               </p>
-              
-              <p className="reveal">
+              <p className="mb-4">
                 מוסמך מהרבנות הראשית לישראל לעריכת חופות.
               </p>
-            </div>
-            
-            <div className="space-y-4 mt-6">
-              <p className="reveal">
+              
+              <p className="mb-3">
                 ב"ה עוסק שנים בעריכת טקסי חופות וקידושין בשפה העברית, אנגלית וצרפתית.
               </p>
               
-              <p className="reveal">
+              <p className="mb-3">
                 אני זוכה ללוות זוגות ביום חופתם, יום שמחת ליבם מתוך תחושת שליחות עמוקה והכרה בקדושת הרגע של מיזוג נשמות לבניית בית בישראל.
               </p>
               
-              <p className="reveal">
+              <p className="mb-3">
                 לחתן והכלה יש אפשרות לקיים פגישת הכרות מקדימה לתאום ציפיות, שילוב אלמנטים וסיפורים אישיים ומרגשים של הזוג שיצרו חופה ייחודית ושמחה שיכבשו את לב האורחים.
               </p>
               
-              <p className="reveal">
+              <p className="mb-3">
                 כמו כן כהכנה לחופה הזוג מקבל הדרכה מפורטת וקלה בעניינים הקשורים לרבנות,
               </p>
               
-              <p className="reveal">
+              <p className="mb-4">
                 ההכרות מאפשרת לי להיות קשוב לצרכים של הזוג ביום המאושר, לערוך חופה יחודית ובלתי נשכחת.
+              </p>
+              
+              <p className="font-bold text-rabbi-beige text-lg mb-4">
+                מזל טוב !
               </p>
             </div>
             
-            <p className="reveal font-bold text-rabbi-beige mt-6 text-lg">
-              מזל טוב !
-            </p>
-            
-            <div className="pt-6 reveal">
+            <div className="pt-2 reveal">
               <a href="#contact" className="btn-primary">בואו נדבר</a>
             </div>
           </div>
